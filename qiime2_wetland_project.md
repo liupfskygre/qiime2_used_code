@@ -68,19 +68,6 @@ qiime tools view liu_taxa-bar-plots_clean.qzv
 ```
 *separate archaeal and bacteria
 
-*archaea
-```
-qiime taxa filter-table \
-  --i-table sample-filtered-table_clean.qza \
-  --i-taxonomy taxonomy.dada2.silva132.250_nospace.qza  \
-  --p-exclude Bacteria \
-  --o-filtered-table sample-filtered-table_clean_Arc.qza
-  
-  #error, white space in taxonomy.dada2.silva132.250.qza file
-  #with fixed taxonomy
-  --p-include p__ \ #include things
-```
-
 *fix taxonomy table
 ```
 #fix taxonomy.qza, https://forum.qiime2.org/t/qiime-taxa-filter-table-error/3947/5
@@ -97,6 +84,53 @@ qiime tools import \
   --output-path taxonomy.dada2.silva132.250_nospace.qza
 ```
 
+*archaea
+```
+qiime taxa filter-table \
+  --i-table sample-filtered-table_clean.qza \
+  --i-taxonomy taxonomy.dada2.silva132.250_nospace.qza  \
+  --p-exclude Bacteria \
+  --o-filtered-table sample-filtered-table_clean_Arc.qza
+  
+  #error, white space in taxonomy.dada2.silva132.250.qza file
+  #with fixed taxonomy
+  --p-include p__ \ #include things
+```
 
+# interactive barplots, Archaea
+```
+qiime taxa barplot --i-table sample-filtered-table_clean_Arc.qza \
+--i-taxonomy taxonomy.dada2.silva132.250_nospace.qza \
+--m-metadata-file may-sept_merged_mapping_table_clean.txt \
+--o-visualization liu_taxa-bar-plots_clean_arc.qzv
+```
+#
+```
+qiime tools view liu_taxa-bar-plots_clean_arc.qzv 
+```
+#Sort Samples By, addd level to order the samples
+
+*bacteria
+```
+qiime taxa filter-table \
+  --i-table sample-filtered-table_clean.qza \
+  --i-taxonomy taxonomy.dada2.silva132.250_nospace.qza  \
+  --p-exclude Archaea \
+  --o-filtered-table sample-filtered-table_clean_Bac.qza
+  
+ #--p-include p__ \ #include things
+```
+
+# interactive barplots, bacteria
+```
+qiime taxa barplot --i-table sample-filtered-table_clean_Bac.qza \
+--i-taxonomy taxonomy.dada2.silva132.250_nospace.qza \
+--m-metadata-file may-sept_merged_mapping_table_clean.txt \
+--o-visualization liu_taxa-bar-plots_clean_Bac.qzv
+```
+#
+```
+qiime tools view liu_taxa-bar-plots_clean_Bac.qzv 
+```
 
 **Section 4: ANCOM; analysis of composition of microbiomes
