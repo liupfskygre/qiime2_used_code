@@ -133,4 +133,64 @@ qiime taxa barplot --i-table sample-filtered-table_clean_Bac.qza \
 qiime tools view liu_taxa-bar-plots_clean_Bac.qzv 
 ```
 
+#August-Bac-D1-D6 (All D1 in August, to see ecosites effects)
+```
+grep -e '#\|Aug' may-sept_merged_mapping_table_clean.txt > August_all_mapping_table_clean.txt
+for dep in D1 D2 D3 D4 D5 D6
+do
+mkdir August_Bac_"${dep}"
+cd August_Bac_"${dep}"
+grep -E "#|$dep" ../August_all_mapping_table_clean.txt > August_mapping_table_clean.txt
+cd ..
+done
+
+for dep in D1 D2 D3 D4 D5 D6
+do
+cd August_Bac_"${dep}"
+#creat a new clean table
+qiime feature-table filter-samples \
+  --i-table ../sample-filtered-table_clean_Bac.qza \
+  --m-metadata-file August_mapping_table_clean.txt \
+  --o-filtered-table August_feature_Bac.qza
+  
+# interactive barplots, clean
+qiime taxa barplot --i-table August_feature_Bac.qza \
+--i-taxonomy ../taxonomy.dada2.silva132.250_nospace.qza \
+--m-metadata-file August_mapping_table_clean.txt   \
+--o-visualization August_feature_Bac.qzv
+cd ..
+done
+
+#/Users/pengfeiliu/A_Wrighton_lab/Wetland_project/16SrRNA_ana_Adrienne/Qiime2_out_Adrienne
+
+```
+#August-Arc-D1-D6 (All D1 in August, to see ecosites effects)
+```
+grep -e '#\|Aug' may-sept_merged_mapping_table_clean.txt > August_all_mapping_table_clean.txt
+for dep in D1 D2 D3 D4 D5 D6
+do
+mkdir August_"${dep}"
+cd August_"${dep}"
+grep -E "#|$dep" ../August_all_mapping_table_clean.txt > August_mapping_table_clean.txt
+cd ..
+done
+
+for dep in D1 D2 D3 D4 D5 D6
+do
+cd August_"${dep}"
+#creat a new clean table
+qiime feature-table filter-samples \
+  --i-table ../sample-filtered-table_clean_Arc.qza \
+  --m-metadata-file August_mapping_table_clean.txt \
+  --o-filtered-table August_feature_Arc.qza
+  
+# interactive barplots, clean
+qiime taxa barplot --i-table August_feature_Arc.qza \
+--i-taxonomy ../taxonomy.dada2.silva132.250_nospace.qza \
+--m-metadata-file August_mapping_table_clean.txt   \
+--o-visualization August_feature_Arc.qzv
+cd ..
+done
+
+
 **Section 4: ANCOM; analysis of composition of microbiomes
