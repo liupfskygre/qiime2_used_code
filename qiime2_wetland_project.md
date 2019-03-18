@@ -263,7 +263,7 @@ done
 #/Users/pengfeiliu/A_Wrighton_lab/Wetland_project/16SrRNA_ana_Adrienne/Qiime2_out_Adrienne
 
 
-**Section 4: ANCOM; analysis of composition of microbiomes
+# Section 4: ANCOM; analysis of composition of microbiomes #
 
 *link
 https://docs.qiime2.org/2018.11/tutorials/filtering/
@@ -306,7 +306,7 @@ done
 **Archaea, on by month**
 #pseudocount of 1 first needs to be added
 
-** archaea, all month, all Depth **
+**archaea, all month, all Depth **
 ```
 cd /Users/pengfeiliu/A_Wrighton_lab/Wetland_project/16SrRNA_ana_Adrienne/Qiime2_out_Adrienne
 # creat pseudo-count table
