@@ -335,6 +335,8 @@ cd /Users/pengfeiliu/A_Wrighton_lab/Wetland_project/16SrRNA_ana_Adrienne/Qiime2_
 done
                                   
 #CATEGORY which category used for groups, or what you want to compare
+```
 
-#
+# questions # 
+*how to convert from a table to qza?
 
