@@ -267,6 +267,7 @@ done
 
 *link
 https://docs.qiime2.org/2018.11/tutorials/filtering/
+
 https://github.com/LangilleLab/microbiome_helper/wiki/Amplicon-SOP-v2-(qiime2-2018.6)
 
 #pseudocount of 1 first needs to be added
