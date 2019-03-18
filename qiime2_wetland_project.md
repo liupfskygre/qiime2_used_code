@@ -286,7 +286,7 @@ cd /Users/pengfeiliu/A_Wrighton_lab/Wetland_project/16SrRNA_ana_Adrienne/Qiime2_
 done
 ```
 
-**bacteria, on by month**
+**Bacteria, on by month**
 ```
 cd /Users/pengfeiliu/A_Wrighton_lab/Wetland_project/16SrRNA_ana_Adrienne/Qiime2_out_Adrienne
 # do ANCOM analysis on month
@@ -302,6 +302,38 @@ done
                                   
 #CATEGORY which category used for groups, or what you want to compare
 ```
+
+**Archaea, on by month**
+#pseudocount of 1 first needs to be added
+
+** archaea, all month, all Depth **
+```
+cd /Users/pengfeiliu/A_Wrighton_lab/Wetland_project/16SrRNA_ana_Adrienne/Qiime2_out_Adrienne
+# creat pseudo-count table
+for dep in D1 D2 D3 D4 D5 D6
+do
+cd Arc_"${dep}"
+qiime composition add-pseudocount --i-table D_feature_Arc.qza \
+--p-pseudocount 1 \
+--o-composition-table D_table_filt_pseudocount.qza
+cd /Users/pengfeiliu/A_Wrighton_lab/Wetland_project/16SrRNA_ana_Adrienne/Qiime2_out_Adrienne
+done
+```
+
+```
+cd /Users/pengfeiliu/A_Wrighton_lab/Wetland_project/16SrRNA_ana_Adrienne/Qiime2_out_Adrienne
+# do ANCOM analysis on month
+for dep in D1 D2 D3 D4 D5 D6
+do
+cd Arc_"${dep}"
+qiime composition ancom --i-table D_table_filt_pseudocount.qza \
+--m-metadata-file D_mapping_table_clean.txt \
+--m-metadata-column month \
+--output-dir ancom_output_month
+cd /Users/pengfeiliu/A_Wrighton_lab/Wetland_project/16SrRNA_ana_Adrienne/Qiime2_out_Adrienne
+done
+                                  
+#CATEGORY which category used for groups, or what you want to compare
 
 #
 
