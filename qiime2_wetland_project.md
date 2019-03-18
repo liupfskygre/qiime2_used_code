@@ -338,5 +338,5 @@ done
 ```
 
 # questions # 
-*how to convert from a table to qza?
+*how to convert from a table to qza?*
 
