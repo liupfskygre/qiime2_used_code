@@ -340,3 +340,14 @@ done
 # questions # 
 *how to convert from a table to qza?*
 
+*how to read the ANCOM output**
+```
+The F-statistic on the x-axis is measure how different one groups is from the average for a specific ASV.
+
+Basically, the null hypothesis here is that all of the groups (on average) are the same. The smaller the F-statistic, the more likely that the null hypothesis can not be rejected.
+
+So the points in the top left corner would indicate that those particular ASVs are distinct. However, the actual changes in their proportions are not large. In terms of prioritizing findings, I’d focus on the points in the top right. But in terms of the points in the top left, it may be worthwhile to investigate, but would require another way to investigate those species.
+
+https://forum.qiime2.org/t/specify-w-cutoff-for-anacom/1844/10
+
+```
